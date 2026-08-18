@@ -24,24 +24,30 @@ jobs:
 
     env:
       DEPLOY_DIR: /srv/ono-pocket-lore/site
+      VENV_DIR: ${{ runner.temp }}/ono-pocket-lore-venv
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.13"
-          cache: pip
+      - name: Check system Python
+        run: |
+          python3 --version
+          python3 -m pip --version
+
+      - name: Create virtual environment
+        run: |
+          rm -rf "$VENV_DIR"
+          python3 -m venv "$VENV_DIR"
+          "$VENV_DIR/bin/python" -m pip install --upgrade pip
 
       - name: Install dependencies
         run: |
-          python -m pip install --upgrade pip
-          pip install -r requirements.txt
+          "$VENV_DIR/bin/pip" install -r requirements.txt
 
       - name: Build documentation
-        run: mkdocs build --strict
+        run: |
+          "$VENV_DIR/bin/mkdocs" build --strict
 
       - name: Validate build
         run: |
