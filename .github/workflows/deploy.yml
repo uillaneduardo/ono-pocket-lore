@@ -25,6 +25,7 @@ jobs:
     env:
       DEPLOY_DIR: /srv/ono-pocket-lore/site
       VENV_DIR: .venv-actions
+      NO_MKDOCS_2_WARNING: "1"
 
     steps:
       - name: Checkout repository
