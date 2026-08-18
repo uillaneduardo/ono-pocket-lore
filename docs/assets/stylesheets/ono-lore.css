@@ -1,0 +1,40 @@
+:root {
+  --md-primary-fg-color: #0b0f12;
+  --md-accent-fg-color: #36d7e0;
+}
+
+[data-md-color-scheme="slate"] {
+  --md-default-bg-color: #0b0f12;
+  --md-default-fg-color: #e8f0f2;
+  --md-default-fg-color--light: #9aabb2;
+  --md-default-fg-color--lighter: #60747d;
+  --md-code-bg-color: #11181c;
+  --md-typeset-a-color: #36d7e0;
+}
+
+.md-header,
+.md-tabs {
+  background-color: #090d0f;
+}
+
+.md-typeset h1,
+.md-typeset h2,
+.md-typeset h3 {
+  font-weight: 700;
+}
+
+.md-typeset code,
+.md-typeset pre,
+.md-nav__link,
+.md-header__topic {
+  letter-spacing: 0.01em;
+}
+
+.md-typeset .admonition,
+.md-typeset details {
+  border-radius: 4px;
+}
+
+.md-typeset table:not([class]) {
+  border: 1px solid #263239;
+}
