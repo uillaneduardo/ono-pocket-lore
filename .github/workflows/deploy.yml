@@ -1,0 +1,62 @@
+name: Deploy Ono Pocket Lore
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ono-pocket-lore-production
+  cancel-in-progress: true
+
+jobs:
+  build-and-deploy:
+    name: Build and deploy to homelab
+    runs-on:
+      - self-hosted
+      - linux
+      - x64
+      - ono-lore
+
+    env:
+      DEPLOY_DIR: /srv/ono-pocket-lore/site
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+          cache: pip
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Build documentation
+        run: mkdocs build --strict
+
+      - name: Validate build
+        run: |
+          test -f site/index.html
+          test -d site/assets
+
+      - name: Publish static site
+        run: |
+          mkdir -p "$DEPLOY_DIR"
+          find "$DEPLOY_DIR" -mindepth 1 -maxdepth 1 -exec rm -rf {} +
+          cp -a site/. "$DEPLOY_DIR/"
+
+      - name: Deployment summary
+        run: |
+          echo "### Ono Pocket Lore deployed" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Commit: \`$GITHUB_SHA\`" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Target: \`$DEPLOY_DIR\`" >> "$GITHUB_STEP_SUMMARY"
+          echo "- URL: https://ono-pocket-lore.wapphub.com.br/" >> "$GITHUB_STEP_SUMMARY"
