@@ -24,7 +24,7 @@ jobs:
 
     env:
       DEPLOY_DIR: /srv/ono-pocket-lore/site
-      VENV_DIR: ${{ runner.temp }}/ono-pocket-lore-venv
+      VENV_DIR: .venv-actions
 
     steps:
       - name: Checkout repository
