@@ -15,6 +15,8 @@ Na antiga era, a Coluna fazia parte de uma infraestrutura de **elevador orbital*
 
 O complexo não se limita à parte visível. Extensas instalações subterrâneas faziam parte do sistema e continuam existindo, embora muito do seu conteúdo, acesso e função tenham sido perdidos ou esquecidos.
 
+Tal estrutura, ou conjunto de estruturas, serviam como base para os milhares de trabalhadores que foram contratados para construir e manter o elevador orbital. A estrutura funcionava como um sistema que se autoregulava com o objetivo de manter a sobrevivência daqueles que viviam ali: geração de energia, alimento, abrigo, materiais e insumos para construção, tudo podia ser encontrado ou fabricado ali.
+
 ## O êxodo
 
 A partida não ocorreu de forma limpa ou plenamente organizada. O processo foi acelerado por crises e conflitos, e uma parcela da população — incluindo trabalhadores ligados à infraestrutura — permaneceu para trás.
