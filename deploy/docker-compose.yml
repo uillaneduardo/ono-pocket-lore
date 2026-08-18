@@ -1,0 +1,22 @@
+services:
+  ono-pocket-lore:
+    image: nginx:alpine
+    container_name: ono-pocket-lore
+    restart: unless-stopped
+
+    volumes:
+      - /srv/ono-pocket-lore/site:/usr/share/nginx/html:ro
+
+    networks:
+      - cloudflare_ingress
+
+    healthcheck:
+      test: ["CMD-SHELL", "wget -q --spider http://127.0.0.1/ || exit 1"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+
+networks:
+  cloudflare_ingress:
+    external: true
