@@ -1,0 +1,73 @@
+site_name: Ono Pocket — Lore & World Bible
+site_description: Bíblia de mundo, lore, história, personagens e cânone do universo de Ono Pocket.
+site_url: https://ono-pocket-lore.wapphub.com.br/
+repo_name: uillaneduardo/ono-pocket-lore
+repo_url: https://github.com/uillaneduardo/ono-pocket-lore
+edit_uri: edit/main/docs/
+
+site_dir: site
+strict: true
+
+theme:
+  name: material
+  language: pt-BR
+  features:
+    - navigation.sections
+    - navigation.indexes
+    - navigation.top
+    - navigation.footer
+    - search.suggest
+    - search.highlight
+    - content.action.edit
+    - content.action.view
+  icon:
+    repo: fontawesome/brands/github
+    edit: material/pencil
+    view: material/eye
+  palette:
+    scheme: slate
+    primary: black
+    accent: cyan
+
+nav:
+  - Início: index.md
+  - Mundo:
+      - Visão geral: world/index.md
+      - A Coluna: world/coluna.md
+      - Zona Habitável: world/zona-habitavel.md
+      - Exterior: world/exterior.md
+  - História:
+      - Visão geral: history/index.md
+      - Antiga Era: history/antiga-era.md
+      - Êxodo: history/exodo.md
+      - Pós-Êxodo: history/pos-exodo.md
+  - Onos:
+      - Visão geral: onos/index.md
+      - Onos Antigos: onos/onos-antigos.md
+      - Onos Modernos: onos/onos-modernos.md
+      - Vínculo: onos/vinculo.md
+  - Sociedade:
+      - Visão geral: society/index.md
+  - Locais:
+      - Visão geral: locations/index.md
+  - Personagens:
+      - Visão geral: characters/index.md
+  - Facções:
+      - Visão geral: factions/index.md
+  - Cânone:
+      - Confirmado: canon/confirmed.md
+      - Mistérios: canon/mysteries.md
+      - Descartado: canon/deprecated.md
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.superfences
+
+extra_css:
+  - assets/stylesheets/ono-lore.css
